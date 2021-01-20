@@ -7,9 +7,9 @@
                 <h1>Dettaglio vestito {{ $products->id }}</h1>
                 <ul>
                     <li>Nome: {{ $products->name }}</li>
-                    <li>Prezzo: {{ $products->color }}</li>
-                    <li>Descrizione: {{ $products->size }}</li>
-                    <li>Stagione: {{ $products->price }}</li>
+                    <li>Colore: {{ $products->color }}</li>
+                    <li>Taglie: {{ $products->size }}</li>
+                    <li>Prezzo: {{ $products->price }}</li>
                 </ul>
             </div>
         </div>
