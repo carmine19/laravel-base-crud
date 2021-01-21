@@ -15,6 +15,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    //
+    //
+    //qui e dove dichiariamo i dati che passiamo dal form con create a store
     protected $fillable = [
         'name', 'email', 'password',
     ];

@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-
-        $all_product = Product::all();
+    public function index()
+    {
+        $all_category = Category::all();
 
         $data = [
-            'products' => $all_product,
+
+            'category' => $all_category,
         ];
 
-        return view('products.index', $data);
+        return view('categories.index', $data);
     }
 
     /**
@@ -30,7 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('categories.create');
     }
 
     /**
@@ -41,18 +42,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        //qui dobbiamo prendere i dati che ci vengono passati da create per salvarli ne database
+
+        //prendo tutti i dati da request
         $data = $request->all();
 
-        $new_product = new Product();
+        //mi salvo i dati in un nuovo oggetto
+        $new_category = new Category();
 
-        $new_product->name = $data['name'];
-        $new_product->color = $data['color'];
-        $new_product->size = $data['size'];
-        $new_product->price = $data['price'];
+        //passo i paramentri che mi arrivano alle variabili facendo riferimento alle colonne del mio database
+        $new_category->type = $data['type'];
 
-        $new_product->save();
+        //salvo i dati che ho passato
+        $new_category->save();
 
-        return redirect()->route('products.index');
+        //devo fare il redirect ad una nuova pagina, se non lo faccio e ricarico verrano sempre scritte nuove tabelle
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -63,14 +68,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-         $products= Product::find($id);
-            if($products) {
-                $data = [
-                    'products' => $products
-                ];
-                return view('products.show', $data);
-            }
-            abort(404);
+        //
     }
 
     /**

@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-
-        $all_product = Product::all();
+    public function index()
+    {
+        $all_users= User::all();
 
         $data = [
-            'products' => $all_product,
+            'users' => $all_users,
         ];
 
-        return view('products.index', $data);
+        return view('users.index', $data);
     }
 
     /**
@@ -30,7 +30,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('users.create');
     }
 
     /**
@@ -41,18 +41,23 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        // qui prendiamo i dati passati da create
+        $data = $request ->all();
 
-        $new_product = new Product();
+        //li salviamo in un nuovo oggetto
+        $new_user = new User();
 
-        $new_product->name = $data['name'];
-        $new_product->color = $data['color'];
-        $new_product->size = $data['size'];
-        $new_product->price = $data['price'];
+        //ora useremo un altro metodo per salvare i dati, consiste nel salvare la variabile data con un fill
+        //qui e poi andare nel model per passare li i vari paramentri
+        $new_user->fill($data);
 
-        $new_product->save();
+        //come per gli altri model salviamo i dati
+        $new_user->save();
 
-        return redirect()->route('products.index');
+        //e ci ricordiamo di fare il redirect
+        return redirect()->route('users.index');
+
+
     }
 
     /**
@@ -63,14 +68,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-         $products= Product::find($id);
-            if($products) {
-                $data = [
-                    'products' => $products
-                ];
-                return view('products.show', $data);
-            }
-            abort(404);
+        //
     }
 
     /**
