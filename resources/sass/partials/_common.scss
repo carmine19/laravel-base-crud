@@ -5,3 +5,45 @@
     background: #323232;
     color: white;
 }
+
+ul,li {
+    list-style-type: none;
+}
+
+a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+
+    .menu {
+        width: 100%;
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            li {
+
+                a {
+                    font-size: 22px;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+
+
+}
