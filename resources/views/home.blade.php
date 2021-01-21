@@ -7,6 +7,5 @@
 
     @foreach($products as $ele)
         <p>{{$ele->name}}</p>
-
     @endforeach
 @endsection

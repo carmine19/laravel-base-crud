@@ -3,7 +3,6 @@
 
 @section('content')
 
-<h1>test-index-products</h1>
 
    <div class="container">
         <div class="row">
@@ -48,6 +47,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="col-lg-12">
+                    <a href="{{ route('products.create') }}" class="btn btn-info">Aggiungi prodotto</a>
+                </div>
             </div>
         </div>
     </div>
