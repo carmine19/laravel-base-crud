@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index() {
-        $all_rpoduct = Product::all();
+        $all_product = Product::all();
+
         $data = [
 
-            'products' => $all_rpoduct,
+            'products' => $all_product,
         ];
         return view('home', $data);
     }

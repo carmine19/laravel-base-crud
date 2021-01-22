@@ -28,7 +28,6 @@
                         <button href="#" class="btn btn-info" type="submit">Aggiungi prodotto</button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>

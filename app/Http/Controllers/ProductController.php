@@ -81,7 +81,15 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $products= Product::find($id);
+            if($products) {
+                $data = [
+                    'products' => $products
+                ];
+                return view('products.edit', $data);
+            }
+            abort(404);
     }
 
     /**
@@ -93,8 +101,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $products= Product::find($id);
+        $data = $request->all();
+        $products->update($data);
+
+
+        return redirect()->route('products.show', ['product' => $products->id]);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -104,6 +118,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $products= Product::find($id);
+        $products->delete();
+        return redirect()->route('products.index');
+
     }
 }
