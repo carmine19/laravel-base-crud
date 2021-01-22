@@ -56,7 +56,7 @@ class UserController extends Controller
         $new_user->save();
 
         //e ci ricordiamo di fare il redirect
-        return redirect()->route('users.index');
+        return redirect()->route('users.show', ['user' => $new_user->id])->with('success', 'salvataggio corretto');
 
 
     }

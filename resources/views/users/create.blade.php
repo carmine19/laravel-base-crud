@@ -10,6 +10,7 @@
                     <h1>Registra nuovo utente</h1>
                     <form method="POST" action="{{route('users.store')}}">
                         @csrf
+                        @method('POST')
                       <div class="form-group mb-5 mt-5">
                         <label for="exampleInputEmail1">Nome</label>
                         <input type="text" name="name" class="form-control" placeholder="Nome...">
