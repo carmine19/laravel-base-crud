@@ -8,6 +8,9 @@
         <div class="row">
             <div class="col-12">
                 <h1>Tutti i vestiti</h1>
+                 <div class="col-lg-12 mb-3 mt-3">
+                    <a href="{{ route('products.create') }}" class="btn btn-info">Aggiungi prodotto</a>
+                </div>
                 <table class="table">
                     <thead>
                         <tr>
@@ -59,9 +62,6 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="col-lg-12">
-                    <a href="{{ route('products.create') }}" class="btn btn-info">Aggiungi prodotto</a>
-                </div>
             </div>
         </div>
     </div>
